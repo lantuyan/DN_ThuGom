@@ -85,6 +85,10 @@ class MapController extends GetxController {
       models.DocumentList documentList = await collection_points.listDocuments(
         databaseId: AppWriteConstants.databaseId,
         collectionId: AppWriteConstants.collection_point_Id,
+          queries: [
+            Query.limit(1000),
+            Query.offset(0)
+          ]
       );
 
       for (var document in documentList.documents) {
@@ -135,6 +139,10 @@ class MapController extends GetxController {
       models.DocumentList documentlistUser = await user_request.listDocuments(
         databaseId: AppWriteConstants.databaseId,
         collectionId: AppWriteConstants.userRequestTrashCollection,
+          queries: [
+            Query.limit(10000),
+            Query.offset(0)
+          ]
       );
       markers_user.clear();
       for (var documents in documentlistUser.documents) {
@@ -189,6 +197,10 @@ class MapController extends GetxController {
       models.DocumentList documentlistUser = await user_request.listDocuments(
         databaseId: AppWriteConstants.databaseId,
         collectionId: AppWriteConstants.userRequestTrashCollection,
+          queries: [
+            Query.limit(10000),
+            Query.offset(0)
+          ]
       );
       static_user_done.clear();
       static_user_not.clear();
